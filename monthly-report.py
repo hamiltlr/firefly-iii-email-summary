@@ -87,7 +87,7 @@ def main():
             categoriesTableBody += '<tr><td style="padding-right: 1em;">'+category['name']+'</td><td style="text-align: right;">'+str(round(float(category['total']))).replace("-", "−")+'</td></tr>'
             #categoriesTableBody += '<tr><td>'+category['name']+'</td><td>'+str(round(float(category['spent'])))+'</td><td>'+str(round(float(category['earned'])))+'</td><td>'+str(round(float(category['total'])))+'</td></tr>'
         categoriesTableBody += '</table>'
-        currency_symbol = str(config['currency-symbol']) or '$'
+        currency_symbol = str(config['currency-symbol']) if 'currency-symbol' in config else '$'
         #
         # Set up the general information table
         generalTableBody = '<table>'
