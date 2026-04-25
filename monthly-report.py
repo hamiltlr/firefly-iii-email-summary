@@ -87,16 +87,17 @@ def main():
 			categoriesTableBody += '<tr><td style="padding-right: 1em;">'+category['name']+'</td><td style="text-align: right;">'+str(round(float(category['total']))).replace("-", "−")+'</td></tr>'
 			#categoriesTableBody += '<tr><td>'+category['name']+'</td><td>'+str(round(float(category['spent'])))+'</td><td>'+str(round(float(category['earned'])))+'</td><td>'+str(round(float(category['total'])))+'</td></tr>'
 		categoriesTableBody += '</table>'
+        currency_symbol = str(config['currency-symbol']) or '$'
 		#
 		# Set up the general information table
 		generalTableBody = '<table>'
-		generalTableBody += '<tr><td>Spent this month:</td><td style="text-align: right;">' + str(round(spentThisMonth)).replace("-", "−") + '</td></tr>'
-		generalTableBody += '<tr><td>Earned this month:</td><td style="text-align: right;">' + str(round(earnedThisMonth)).replace("-", "−") + '</td></tr>'
-		generalTableBody += '<tr style="border-bottom: 1px solid black"><td>Net change this month:</td><td style="text-align: right;">' + str(round(netChangeThisMonth)).replace("-", "−") + '</td></tr>'
-		generalTableBody += '<tr><td>Spent so far this year:</td><td style="text-align: right;">' + str(round(spentThisYear)).replace("-", "−") + '</td></tr>'
-		generalTableBody += '<tr><td>Earned so far this year:</td><td style="text-align: right;">' + str(round(earnedThisYear)).replace("-", "−") + '</td></tr>'
-		generalTableBody += '<tr style="border-bottom: 1px solid black"><td style="padding-right: 1em;">Net change so far this year:</td><td style="text-align: right;">' + str(round(netChangeThisYear)).replace("-", "−") + '</td></tr>'
-		generalTableBody += '<tr><td>Current net worth:</td><td style="text-align: right;">' + str(round(netWorth)).replace("-", "−") + '</td></tr>'
+		generalTableBody += '<tr><td>Spent this month:</td><td style="text-align: right;">' + currency_symbol + str(round(spentThisMonth)).replace("-", "−") + '</td></tr>'
+		generalTableBody += '<tr><td>Earned this month:</td><td style="text-align: right;">' + currency_symbol + str(round(earnedThisMonth)).replace("-", "−") + '</td></tr>'
+		generalTableBody += '<tr style="border-bottom: 1px solid black"><td>Net change this month:</td><td style="text-align: right;">' + currency_symbol + str(round(netChangeThisMonth)).replace("-", "−") + '</td></tr>'
+		generalTableBody += '<tr><td>Spent so far this year:</td><td style="text-align: right;">' + currency_symbol + str(round(spentThisYear)).replace("-", "−") + '</td></tr>'
+		generalTableBody += '<tr><td>Earned so far this year:</td><td style="text-align: right;">' + currency_symbol + str(round(earnedThisYear)).replace("-", "−") + '</td></tr>'
+		generalTableBody += '<tr style="border-bottom: 1px solid black"><td style="padding-right: 1em;">Net change so far this year:</td><td style="text-align: right;">' + currency_symbol + str(round(netChangeThisYear)).replace("-", "−") + '</td></tr>'
+		generalTableBody += '<tr><td>Current net worth:</td><td style="text-align: right;">' + currency_symbol + str(round(netWorth)).replace("-", "−") + '</td></tr>'
 		generalTableBody +='</table>'
 		#
 		# Assemble the email
