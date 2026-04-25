@@ -38,6 +38,8 @@ def main():
 	}
 	with requests.Session() as s:
 		s.headers.update(HEADERS)
+		if 'client-cert' in config and 'client-key' in config:
+			s.cert = (config['client-cert'], config['client-key'])
 		#
 		# Get all the categories
 		url = config['firefly-url'] + '/api/v1/categories'
